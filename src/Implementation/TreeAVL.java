@@ -9,6 +9,10 @@ public class TreeAVL {
         this.rebalanced = true;
     }
 
+    public Node getRoot() {
+        return root;
+    }
+
     private Node insert(String newValue, Node node){
         if(node == null) return new Node(newValue);
         int compareResult = node.getWord().compareToIgnoreCase(newValue);
@@ -46,13 +50,7 @@ public class TreeAVL {
 
     private void inOrder(Node node){
         if(node.hasLeftChild()) inOrder(node.getLeftChild());
-        System.out.println("content: " + node.getWord());
-        System.out.println("height: " + node.getHeight());
-        System.out.println("leftChild : " + node.hasLeftChild());
-        if(node.hasLeftChild()) System.out.println("leftValue " + node.getLeftChild().getWord());
-        System.out.println("rightChild : " + node.hasRightChild());
-        if(node.hasRightChild()) System.out.println("RightValue " + node.getRightChild().getWord());
-        System.out.println();
+        System.out.println(node.getWord());
         if(node.hasRightChild())  inOrder(node.getRightChild());
     }
     public void inOrder(){
@@ -111,6 +109,5 @@ public class TreeAVL {
     public void delete(String value) {
         this.root = this.delete(value, this.root);
     }
-
 
 }
