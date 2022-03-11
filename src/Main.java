@@ -28,8 +28,14 @@ public class Main {
                     System.out.println("- type \"exit\" ...to return to mode selection again");
                     System.out.print("=> ");
                     String input = read.nextLine();
-                    if(input.equalsIgnoreCase("Height"))
-                        System.out.println(tree.getRoot().getHeight());
+                    if(input.equalsIgnoreCase("Height")){
+                        try{
+                            System.out.println("Height is : " +tree.getRoot().getHeight());
+                        }
+                        catch (NullPointerException e){
+                            System.out.println("Height is : zero....No elements inserted");
+                        }
+                    }
                     else{
                         Boolean res = readIO(input);
                         if(!res) break;
@@ -45,8 +51,14 @@ public class Main {
                     System.out.print("=> ");
                     String input = read.nextLine();
                     Boolean res ;
-                    if(input.equalsIgnoreCase("Height"))
-                        System.out.println("Height is : " +tree.getRoot().getHeight());
+                    if(input.equalsIgnoreCase("Height")){
+                        try{
+                            System.out.println("Height is : " +tree.getRoot().getHeight());
+                        }
+                        catch (NullPointerException e){
+                            System.out.println("Height is : zero....No elements inserted");
+                        }
+                    }
                     else{
                         res = readFile(input);
                         if(!res) break;
